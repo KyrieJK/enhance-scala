@@ -78,12 +78,12 @@ object chapter05 {
    *
    * @param args
    */
-  def q4(hr:Int,min:Int)={
-    class Time(hr:Int,min:Int){
-      val minute = hr*60+min
+  def q4(hr: Int, min: Int) = {
+    class Time(hr: Int, min: Int) {
+      val minute = hr * 60 + min
 
-      def before(other:Time):Boolean={
-        if (minute<other.minute) true else false
+      def before(other: Time): Boolean = {
+        if (minute < other.minute) true else false
       }
     }
   }
@@ -95,16 +95,16 @@ object chapter05 {
    * @param args
    */
 
-  def q5={
-    class Student{
-      @BeanProperty var id=0L
-      @BeanProperty var name=""
+  def q5 = {
+    class Student {
+      @BeanProperty var id = 0L
+      @BeanProperty var name = ""
     }
 
     var s = new Student
     s.setId(1)
     s.setName("aaa")
-    println(s.getId+":"+s.getName)
+    println(s.getId + ":" + s.getName)
   }
 
   /**
@@ -112,13 +112,13 @@ object chapter05 {
    *
    * @param args
    */
-  def q6={
-    class Person(var age:Int=0){
-      if(age<0) age=0
+  def q6 = {
+    class Person(var age: Int = 0) {
+      if (age < 0) age = 0
     }
-    val p =new Person(5)
+    val p = new Person(5)
     println(p.age)
-    val n=new Person(-5)
+    val n = new Person(-5)
     println(n.age)
   }
 
@@ -128,10 +128,10 @@ object chapter05 {
    *
    * @param args
    */
-  def q7={
-    class Person(name:String){
-      val firstName=name.split(" ")(0)
-      val lastName =name.split(" ")(1)
+  def q7 = {
+    class Person(name: String) {
+      val firstName = name.split(" ")(0)
+      val lastName = name.split(" ")(1)
     }
   }
 
@@ -142,14 +142,14 @@ object chapter05 {
    *
    * @param args
    */
-  def q8={
-    class Car(val manufacture:String,val model:String,val year:Int=-1,var license:String=""){
-      override def toString: String = "Car(%s %s %d %s)".format(manufacture,model,year,license)
+  def q8 = {
+    class Car(val manufacture: String, val model: String, val year: Int = -1, var license: String = "") {
+      override def toString: String = "Car(%s %s %d %s)".format(manufacture, model, year, license)
     }
 
-    val c1 = new Car("Benz","Civic",2011,"asd13")
-    val c2 = new Car("Hummer","Z2",2008)
-    val c3 =new Car("Tesla","Astra")
+    val c1 = new Car("Benz", "Civic", 2011, "asd13")
+    val c2 = new Car("Hummer", "Z2", 2008)
+    val c3 = new Car("Tesla", "Astra")
     println(c3)
   }
 
@@ -169,12 +169,11 @@ object chapter05 {
    *
    * @param args
    */
-    def q10: Unit ={
-      class Employee(val name:String="John Q. Public",var salary:Double=0){
+  def q10: Unit = {
+    class Employee(val name: String = "John Q. Public", var salary: Double = 0) {
 
-      }
     }
-
+  }
 
 
   def main(args: Array[String]): Unit = {
