@@ -1,6 +1,6 @@
 package com.kyriejk
 
-import java.io.{BufferedWriter, File, FileOutputStream, OutputStreamWriter, PrintWriter}
+import java.io.{BufferedWriter, File, FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream, OutputStreamWriter, PrintWriter}
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
@@ -99,7 +99,7 @@ object chapter09 {
     """.+(?<!\\)""".r.findAllIn(input).foreach(println)
   }
 
-  
+
   /**
    * 7.编写Scala程序，从文本文件读取内容，并打印出所有非浮点数的词法单元。要求使用正则表达式
    *
@@ -134,6 +134,33 @@ object chapter09 {
    *
    * @param args
    */
+    def q10()={
+      val p=new Person("Tom")
+      p.addFriend(new Person("Jack"))
+
+      val os = new ObjectOutputStream(new FileOutputStream("result.txt"))
+      os.writeObject(p)
+      os.close()
+      val oi=new ObjectInputStream(new FileInputStream("result.txt"))
+      var sp =oi.readObject().asInstanceOf[Person]
+      oi.close()
+
+      println(sp)
+    }
+
+  class Person(val name:String) extends Serializable{
+    var friends = new collection.mutable.ArrayBuffer[Person]()
+
+    def addFriend(p:Person*): Unit ={
+      friends.appendAll(p)
+    }
+
+    override def toString: String={
+      var res="My name is:"+name+",my friends are:"
+      friends.foreach(res+=_.name+",")
+      res.dropRight(1)
+    }
+  }
 
 
 
