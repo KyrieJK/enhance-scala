@@ -184,5 +184,4 @@ object chapter08 extends App {
    *
    * @param args
    */
-  class Point(var x:Double,var y:Double) extends AnyVal{}
 }

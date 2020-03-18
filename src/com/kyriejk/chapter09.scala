@@ -117,11 +117,11 @@ object chapter09 {
    *
    * @param args
    */
-  def q9(files: File*) = {
+  def q9(files: File*):Iterable[File] = {
     val dirs = files.filter(_.isDirectory)
     if (dirs.length > 0) {
       (Iterable[File]() /: dirs) {
-        (list, f) => list ++ files.filter( x => x.isFile && x.getName.endsWith(".class")) ++ q9(f.listFiles(): _*))
+        (list, f) => list ++ files.filter{ x => x.isFile && x.getName.endsWith(".class")} ++ q9(f.listFiles(): _*)
       }
     }else{
       files.filter(x=>x.isFile&&x.getName.endsWith(".class"))
@@ -166,6 +166,6 @@ object chapter09 {
 
   def main(args: Array[String]): Unit = {
 
-    
+
   }
 }
