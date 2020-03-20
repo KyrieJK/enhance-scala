@@ -93,6 +93,7 @@ object chapter13 extends App {
    * for(c<-str.par) frequencies(c)=frequencies.getOrElse(c,0)+1
    * 为什么说这个想法很糟糕？要真正地并行化这个计算，他应该怎么做呢？
    * 提示：用aggregate
+   * aggregate为聚合函数，常在spark中使用
    */
   def fun10(str: String) = {
     str.par.aggregate(Map[Char, Int]())(
