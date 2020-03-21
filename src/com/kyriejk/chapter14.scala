@@ -171,7 +171,6 @@ object chapter14 extends App {
    *    def g(x:Double) = if (x != 1) Some(1 / (x-1)) else None
    *    val h = compose(f, g)
    * h(2)将得到Some(1), 而h(1)和h(0)将得到None.
-   * 这里简单加一下
    */
   def compose(f1: Double => Option[Double], f2: Double => Option[Double]): Double => Option[Double] = {
     x =>
@@ -181,5 +180,5 @@ object chapter14 extends App {
         case (Some(a),Some(b))=>Some(a+b)
       }
   }
-  
+
 }
